@@ -54,6 +54,7 @@ This is the sum of:
 
  - Handling
  - Maneuvers
+ - Surcharge for non-free storage
 
 # Exchange rates
 
