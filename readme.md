@@ -78,7 +78,7 @@ The user inputs weight and dimensions of the cargo, as well as the EXW/FCA value
 
  Next steps as follows:
 
- 1. Volumetric weight is calculated by multiplying all the dimensions and dividing by 6000.
+ 1. Volumetric weight is calculated by multiplying all the dimensions and dividing by 5000.
  
  2. The highest value between input-weight and volumetric-weight is used for calculations. 
 
@@ -102,7 +102,7 @@ The user inputs weight and dimensions of the cargo, as well as the EXW/FCA value
  
 	 - Customs value
 	 - DTA
-	 - IGIE
+	 - IGI
 	 - Government's validation -> 278 MXN
 	 - Maneuvers total
 	 - Surcharge for non-free storage
