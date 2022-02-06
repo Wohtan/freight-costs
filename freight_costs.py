@@ -29,6 +29,8 @@ def calculate_costs(input_data):
 
     costs['nonfree surcharge'] = nonfree_surcharge
 
-    costs['agents fee'] = agents_fee(customs_value, costs)
+    costs["agent's fee"] = agents_fee(customs_value, costs)
+
+    costs['TOTAL'] = round(sum(costs.values()) - costs['maneuvers total'] - costs['nonfree surcharge'],2)
 
     return costs
