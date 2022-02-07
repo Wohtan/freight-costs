@@ -11,15 +11,11 @@ def home():
     fields = form.fields
     input_data = request.form.to_dict()
 
-    if form.validate_on_submit():       
-        return jsonify(input_data)
+    if form.validate_on_submit(): 
+        costs = calculate_costs(input_data)      
+        return render_template('calculate.html', form = form, fields = fields, costs=costs)
 
-    return render_template('calculate.html', form = form, fields = fields)
+    return render_template('calculate.html', form = form, fields = fields, costs = [])
 
-@app.route('/calculate')
-def calculate():
-    input_data = request.get_json()['input_data']
-    costs = calculate_costs(input_data)
-    return costs 
 
 app.run(debug=True)

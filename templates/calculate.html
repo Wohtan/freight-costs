@@ -12,7 +12,8 @@
         <div class='card card-body' style='width : 25rem;'>
           <h6 class='card-title text-center'>Please fill in the shipment's info</h6>
 
-          <form method="POST" action="{{ url_for('calculate') }}">  
+          <form method="POST" action="{{ url_for('home') }}"> 
+            {{ form.hidden_tag() }}
 
             {% for field in fields %}  
               <div class = 'row mb-3 px-1'>
@@ -60,60 +61,60 @@
             <th>Cost [MXN]</th>
           </tr>
         </thead>
-
+        
           <tr>
             <td>International freight</td>
-            <td></td>
+            <td class='text-center'>{{ costs['intl freight'] }}</td>
           </tr>
 
           <tr>
             <td>DTA</td>
-            <td></td>
+            <td class='text-center'>{{ costs['DTA'] }}</td>
           </tr>
 
           <tr>
             <td>IGI</td>
-            <td></td>
+            <td class='text-center'>{{ costs['IGI'] }}</td>
           </tr>
 
           <tr>
             <td>Government's pre-val.</td>
-            <td></td>
+            <td class='text-center'>{{ costs["Government's pre-validation"] }}</td>
           </tr>
 
           <tr>
             <td>Maneuvers total</td>
-            <td></td>
+            <td class='text-center'>{{ costs['maneuvers total'] }}</td>
           </tr>
 
           <tr>
             <td>DHL management surcharge</td>
-            <td></td>
+            <td class='text-center'>{{ costs['DHL management surcharge'] }}</td>
           </tr>
 
           <tr>
             <td>Agent's fee</td>
-            <td></td>
+            <td class='text-center'>{{ costs["agent's fee"] }}</td>
           </tr>
 
           <tr>
             <td>Complementary services</td>
-            <td></td>
+            <td class='text-center'>{{ costs['complementary services'] }}</td>
           </tr>
 
           <tr>
             <td>Agent's fixed surcharges</td>
-            <td></td>
+            <td class='text-center'>{{ costs['agent fixed surcharges'] }}</td>
           </tr>
 
           <tr class='table-success'>
-            <td>TOTAL</td>
-            <td></td>
+            <td class='text-center'>TOTAL</td>
+            <td class='text-center'> {{ costs['TOTAL'] }}</td>
           </tr>
           
         </table>
 
-        <p class="card-text fst-italic"><small class="text-muted">Customs Value: </small></p>
+        <p class="card-text fst-italic"><small class="text-muted">Customs Value: {{ costs['customs value'] }} MXN</small></p>
 
         </div>
       </div>

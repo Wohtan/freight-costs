@@ -5,19 +5,19 @@ def calculate_costs(input_data):
     ##Performs currency exchange if needed
 
     if input_data['currency'] != 'MXN':
-        input_data['EXW/FCA value'] *= exchange_rates[input_data['currency']]
+        input_data['value'] = float(input_data['value']) * exchange_rates[input_data['currency']]
 
-    weight = calculate_weight(input_data)
+    weight = float(calculate_weight(input_data))
 
     costs = weight_costs_query(weight)
 
-    customs_value = input_data['EXW/FCA value'] + costs['intl freight']
+    customs_value = float(input_data['value']) + costs['intl freight']
 
     costs.update(customsval_costs_query(customs_value))
 
     costs['DTA'] = round(customs_value * 0.008,2)
 
-    costs['IGI'] = round(customs_value * input_data['IGI'],2)
+    costs['IGI'] = round(customs_value * int(input_data['taxes'].replace('%',''))/100,2)
 
     costs.update(fixed_costs)
 
@@ -31,10 +31,14 @@ def calculate_costs(input_data):
 
     costs["agent's fee"] = agents_fee(customs_value, costs)
 
-    costs['customs_value'] = customs_value
+    costs['customs value'] = customs_value
 
     costs["Government's pre-validation"] = 278
 
-    costs['TOTAL'] = round(sum(costs.values()) - costs['maneuvers total'] - costs['nonfree surcharge'],2)
+    costs['TOTAL'] = round(sum(costs.values())
+    - costs['maneuvers total'] 
+    - costs['nonfree surcharge']
+    - costs['customs value']
+    ,0)
 
     return costs

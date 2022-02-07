@@ -53,7 +53,7 @@ class Input_form(FlaskForm):
     )       
 
     value = DecimalField(
-        'EXW/FCA Value',
+        'EXW/FCA value',
             [DataRequired(),
             NumberRange(min=1,
             max = 500000,

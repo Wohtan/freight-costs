@@ -24,11 +24,11 @@ def create_tables():
     return weight_tables,customs_value_tables
 
 def calculate_weight(input_data):
-    height = input_data['height']
-    length = input_data['length']
-    depth = input_data['depth']
+    height =float(input_data['height'])
+    length =float(input_data['length'])
+    depth = float(input_data['depth'])
     
-    input_weight = input_data['weight']
+    input_weight = float(input_data['weight'])
     vol_weight = (height * length * depth)/5000
 
     if input_weight > vol_weight:
