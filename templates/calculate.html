@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<div class="container-xl">
+
+    <div class="row gx-2">
+      <div class="col py-3">
+        
+        <div class='card card-body' style='width : 25rem;'>
+          <h6 class='card-title text-center'>Please fill in the shipment's info</h6>
+
+          <form method="POST" action=" {{ url_for('calculate') }} ">  
+
+            {% for field in fields %}  
+              <div class = 'row mb-3 px-3'>
+
+              <div class='col'>
+              <label>{{ form[field].label }}</label>
+              </div>
+              
+              <div class='col'>
+              {{ form[field] }}
+              </div>
+
+                {% if form[field].errors %}
+                <ul class="errors">
+                  {% for error in form[field].errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+
+              </div>
+              {% endfor %} 
+              
+              
+              <fieldset class='row-sm text-center'> 
+                {{ form.submit }}
+              </fieldset>  
+
+
+           
+          </form>         
+        </div>
+
+      </div>
+
+
+      <div class="col py-3">
+        <div class="card card-body style='width : 22rem;">
+        <h5 class='card-title pb-2'>Shipment's costs</h5>
+        
+        <table class = 'table table-hover'>
+          <thead>
+          <tr class='text-center'>
+            <th>Item</th>
+            <th>Cost [MXN]</th>
+          </tr>
+        </thead>
+
+          <tr>
+            <td>International freight</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>DTA</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>IGI</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>Handling</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Complementary services</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Agent's fixed surcharges</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Agent's fee</td>
+            <td></td>
+          </tr>          
+          <tr class='table-success'>
+            <td>TOTAL</td>
+            <td></td>
+          </tr>
+        </table>
+
+        <p class="card-text fst-italic"><small class="text-muted">Customs Value: </small></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

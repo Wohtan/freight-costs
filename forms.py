@@ -67,14 +67,14 @@ class Input_form(FlaskForm):
             [DataRequired()],
         choices=[
             ('EUR'),
-            ('MXN'),
             ('CHF'),
+            ('MXN'),
             ('USD')
         ]
     )    
 
     taxes = SelectField(
-        'IGI',
+        'Tax rate',
             [DataRequired()],
         choices=[
             ('5%'),
@@ -85,3 +85,11 @@ class Input_form(FlaskForm):
     )     
 
     submit = SubmitField('Submit')  
+
+    fields = ['weight',
+    'height',
+    'length',
+    'depth',
+    'value',
+    'currency',
+    'taxes',]
