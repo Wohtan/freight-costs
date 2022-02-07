@@ -12,7 +12,7 @@
         <div class='card card-body' style='width : 25rem;'>
           <h6 class='card-title text-center'>Please fill in the shipment's info</h6>
 
-          <form method="POST" action=" {{ url_for('calculate') }} ">  
+          <form method="POST" action="{{ url_for('calculate') }}">  
 
             {% for field in fields %}  
               <div class = 'row mb-3 px-1'>
