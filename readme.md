@@ -27,7 +27,7 @@ The customs agent has a table of fixed surcharges as it follows:
 
 |Surcharge| Value MXN  |
 |--|:--:|
-| Importation request and validation |135 |
+| Import request and validation |135 |
 |Previous inspection|345|
 |Previous validation|250 |
 |MV and HC|120|

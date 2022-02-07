@@ -31,6 +31,10 @@ def calculate_costs(input_data):
 
     costs["agent's fee"] = agents_fee(customs_value, costs)
 
+    costs['customs_value'] = customs_value
+
+    costs["Government's pre-validation"] = 278
+
     costs['TOTAL'] = round(sum(costs.values()) - costs['maneuvers total'] - costs['nonfree surcharge'],2)
 
     return costs
