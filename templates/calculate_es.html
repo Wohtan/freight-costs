@@ -1,0 +1,125 @@
+{% extends 'layout_es.html' %}
+
+
+{% block body %}
+
+<div class="container-xl">
+
+    <div class="row gx-2">
+
+      <div class="col py-3">
+        
+        <div class='card card-body' style='width : 25rem;'>
+          <h6 class='card-title text-center'>Por favor ingrese la información del envío</h6>
+
+          <form method="POST" action="{{ url_for('home') }}"> 
+            {{ form.hidden_tag() }}
+
+            {% for field in fields %}  
+              <div class = 'row mb-3 px-1'>
+
+              <div class='col-3 text-center'>
+              <label>{{ form[field].label }}</label>
+              </div>
+              
+              <div class='col text-center'>
+              {{ form[field] }}
+              </div>
+
+                {% if form[field].errors %}
+                <ul class="errors">
+                  {% for error in form[field].errors %}
+                    <li>{{ error }}</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+
+              </div>
+            {% endfor %} 
+              
+              
+              <fieldset class='row-sm text-center'> 
+                {{ form.submit }}
+              </fieldset>  
+
+
+           
+          </form>         
+        </div>
+
+      </div>
+
+
+      <div class="col py-3">
+        <div class="card card-body style='width : 22rem;">
+        <h5 class='card-title pb-2'>Costos del envío</h5>
+        
+        <table class = 'table table-hover'>
+          <thead>
+          <tr class='text-center'>
+            <th>Item</th>
+            <th>Costo [MXN]</th>
+          </tr>
+        </thead>
+        
+          <tr>
+            <td>Flete internacional</td>
+            <td class='text-center'>{{ costs['intl freight'] }}</td>
+          </tr>
+
+          <tr>
+            <td>DTA</td>
+            <td class='text-center'>{{ costs['DTA'] }}</td>
+          </tr>
+
+          <tr>
+            <td>IGI</td>
+            <td class='text-center'>{{ costs['IGI'] }}</td>
+          </tr>
+
+          <tr>
+            <td>Prevalidación Gobierno</td>
+            <td class='text-center'>{{ costs["Government's pre-validation"] }}</td>
+          </tr>
+
+          <tr>
+            <td>Total maniobras</td>
+            <td class='text-center'>{{ costs['maneuvers total'] }}</td>
+          </tr>
+
+          <tr>
+            <td>Recargo por manejo DHL</td>
+            <td class='text-center'>{{ costs['DHL management surcharge'] }}</td>
+          </tr>
+
+          <tr>
+            <td>Honorarios del agente</td>
+            <td class='text-center'>{{ costs["agent's fee"] }}</td>
+          </tr>
+
+          <tr>
+            <td>Servicios complementarios</td>
+            <td class='text-center'>{{ costs['complementary services'] }}</td>
+          </tr>
+
+          <tr>
+            <td>Cargos fijos del agente</td>
+            <td class='text-center'>{{ costs['agent fixed surcharges'] }}</td>
+          </tr>
+
+          <tr class='table-success'>
+            <td class='text-center'>TOTAL</td>
+            <td class='text-center'> {{ costs['TOTAL'] }}</td>
+          </tr>
+          
+        </table>
+
+        <p class="card-text fst-italic"><small class="text-muted">Valor aduana: {{ costs['customs value'] }} MXN</small></p>
+
+        </div>
+      </div>
+    </div>
+</div>
+
+
+{% endblock %}

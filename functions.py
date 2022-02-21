@@ -81,7 +81,7 @@ def agents_fee(customs_value,costs):
     costs['maneuvers total'],
     costs['nonfree surcharge'],
     costs['DHL management surcharge']]
-    values_sum = sum(values) * 1.16 * 0.004
+    values_sum = round(sum(values) * 1.16 * 0.004,2)
 
     if values_sum > 1000:
         return values_sum
