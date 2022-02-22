@@ -29,7 +29,7 @@
                 {% if form[field].errors %}
                 <ul class="errors">
                   {% for error in form[field].errors %}
-                    <li>{{ error }}</li>
+                    <li class='error_message'>{{ error }}</li>
                   {% endfor %}
                 </ul>
                 {% endif %}
@@ -52,7 +52,7 @@
 
       <div class="col py-3">
         <div class="card card-body style='width : 22rem;">
-        <h5 class='card-title pb-2'>Shipment's costs</h5>
+        <h5 class='card-title pb-2 text-center '>Shipment's costs</h5>
         
         <table class = 'table table-hover'>
           <thead>
@@ -114,7 +114,7 @@
           
         </table>
 
-        <p class="card-text fst-italic"><small class="text-muted">Customs Value: {{ costs['customs value'] }} MXN</small></p>
+        <p class="card-text fst-italic"><small class="text-muted">Customs value: {{ costs['customs value'] }} MXN</small></p>
 
         </div>
       </div>
