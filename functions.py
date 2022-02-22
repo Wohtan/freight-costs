@@ -1,5 +1,7 @@
 import pandas as pd
 from constants import *
+from flask import request, session
+from forms import *
 
 def create_tables():
     weight_dependent = [
@@ -74,6 +76,7 @@ def customsval_costs_query(customs_value):
     return query_df   
 
 def agents_fee(customs_value,costs):
+
     values = [customs_value,
     costs['DTA'],
     costs['IGI'],
@@ -87,3 +90,24 @@ def agents_fee(customs_value,costs):
         return values_sum
     else:
         return 1000
+
+def check_language():
+    language = request.args.get('lang')
+
+    default_language = 'es'
+
+    if not 'language' in session:
+        session['language'] = default_language 
+        language = default_language
+    else:
+        if language:
+            session['language'] = language
+        else:
+            language = session['language']           
+
+    if language == 'es':        
+        form = Input_form_es()   
+    else:
+        form = Input_form_en()
+
+    return language,form
