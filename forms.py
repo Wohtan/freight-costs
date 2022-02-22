@@ -1,4 +1,5 @@
 from random import choices
+from xml.dom import ValidationErr
 from flask_wtf import FlaskForm
 
 from wtforms import (StringField, 
@@ -9,7 +10,48 @@ SubmitField)
 from wtforms.validators import (
     DataRequired,
     NumberRange,
+    ValidationError
 )
+
+##Custom validators
+def check_ammount_en(form,field):
+    value = int(form.value.data)
+    currency = form.currency.data
+
+    if currency == 'EUR' and value > 70000:
+        raise ValidationError('Values over 70K EUR are not allowed')
+
+    elif currency == 'MXN' and value > 1500000:
+        raise ValidationError('Values over 1.5 MM MXN are not allowed')
+
+    elif currency == 'USD' and value > 80000:
+        raise ValidationError('Values over 80K USD are not allowed')
+
+    elif currency == 'CHF' and value > 73000:
+        raise ValidationError('Values over 73K CHF are not allowed')
+
+    else:
+        return
+
+def check_ammount_es(form,field):
+    value = int(form.value.data)
+    currency = form.currency.data
+
+    if currency == 'EUR' and value > 70000:
+        raise ValidationError('No se permiten valores sobre 70K EUR')
+
+    elif currency == 'MXN' and value > 1500000:
+        raise ValidationError('No se permiten valores sobre 1.5 MM MXN')
+
+    elif currency == 'USD' and value > 80000:
+        raise ValidationError('No se permiten valores sobre 80K USD')
+
+    elif currency == 'CHF' and value > 73000:
+        raise ValidationError('No se permiten valores sobre 73K CHF')
+
+    else:
+        return
+
 
 class Input_form_en(FlaskForm):
     weight = DecimalField(
@@ -55,10 +97,7 @@ class Input_form_en(FlaskForm):
     value = DecimalField(
         'EXW/FCA value',
             [DataRequired(),
-            NumberRange(min=1,
-            max = 500000,
-            message = 'Value out of range'
-            )],
+            check_ammount_en],
         places= 1,
     )     
 
@@ -138,10 +177,7 @@ class Input_form_es(FlaskForm):
     value = DecimalField(
         'Valor EXW/FCA',
             [DataRequired(),
-            NumberRange(min=1,
-            max = 500000,
-            message = 'Valor fuera de rango'
-            )],
+            check_ammount_es],
         places= 1,
     )     
 

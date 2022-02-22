@@ -31,7 +31,7 @@ def calculate_costs(input_data):
 
     costs["agent's fee"] = agents_fee(customs_value, costs)
 
-    costs['customs value'] = customs_value
+    costs['customs value'] = round(customs_value,2)
 
     costs["Government's pre-validation"] = 278
 
