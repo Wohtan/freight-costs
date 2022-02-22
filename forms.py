@@ -55,7 +55,7 @@ def check_ammount_es(form,field):
 
 class Input_form_en(FlaskForm):
     weight = DecimalField(
-        'Weight',
+        'Weight [kg]',
             [DataRequired(),
             NumberRange(min=0.05,
             max = 50,
@@ -65,7 +65,7 @@ class Input_form_en(FlaskForm):
     )
 
     height = DecimalField(
-        'Height',
+        'Height [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,
@@ -75,7 +75,7 @@ class Input_form_en(FlaskForm):
     )  
     
     length = DecimalField(
-        'Length',
+        'Length [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,
@@ -85,7 +85,7 @@ class Input_form_en(FlaskForm):
     )
 
     depth = DecimalField(
-        'Depth',
+        'Depth [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,
@@ -135,7 +135,7 @@ class Input_form_en(FlaskForm):
 
 class Input_form_es(FlaskForm):
     weight = DecimalField(
-        'Peso',
+        'Peso [kg]',
             [DataRequired(),
             NumberRange(min=0.05,
             max = 50,
@@ -145,7 +145,7 @@ class Input_form_es(FlaskForm):
     )
 
     height = DecimalField(
-        'Altura',
+        'Altura [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,
@@ -155,7 +155,7 @@ class Input_form_es(FlaskForm):
     )  
     
     length = DecimalField(
-        'Ancho',
+        'Ancho [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,
@@ -165,7 +165,7 @@ class Input_form_es(FlaskForm):
     )
 
     depth = DecimalField(
-        'Largo',
+        'Largo [cm]',
             [DataRequired(),
             NumberRange(min=5,
             max = 150,

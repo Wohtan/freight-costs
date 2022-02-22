@@ -9,8 +9,8 @@
 
       <div class="col py-3">
         
-        <div class='card card-body' style='width : 25rem;'>
-          <h6 class='card-title text-center'>Por favor ingrese la información del envío</h6>
+        <div class='card card-body' style='width : 29rem;'>
+          <h6 class='card-title text-center mb-3'>Por favor ingrese la información del envío</h6>
 
           <form method="POST" action="{{ url_for('home') }}"> 
             {{ form.hidden_tag() }}
@@ -18,7 +18,7 @@
             {% for field in fields %}  
               <div class = 'row mb-3 px-1'>
 
-              <div class='col-3 text-center'>
+              <div class='col-4 text-center'>
               <label>{{ form[field].label }}</label>
               </div>
               
