@@ -20,7 +20,7 @@
 
               <div class='col-4 text-center'>
               <label>{{ form[field].label }}</label>
-              </div>
+              </div> 
               
               <div class='col text-center'>
               {{ form[field] }}
@@ -30,20 +30,18 @@
                 <ul class="errors">
                   {% for error in form[field].errors %}
                     <li class='error_message'>{{ error }}</li>
-                  {% endfor %}
+                    {% endfor %}                   
                 </ul>
                 {% endif %}
 
               </div>
             {% endfor %} 
-              
-              
-              <fieldset class='row-sm text-center'> 
-                {{ form.submit }}
-              </fieldset>  
 
 
-           
+            <fieldset class='row-sm text-center'> 
+              {{ form.submit }}
+            </fieldset>  
+
           </form>         
         </div>
 

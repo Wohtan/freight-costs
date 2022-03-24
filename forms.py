@@ -5,7 +5,8 @@ from flask_wtf import FlaskForm
 from wtforms import (StringField, 
 DecimalField, 
 SelectField,
-SubmitField)
+SubmitField,
+BooleanField)
 
 from wtforms.validators import (
     DataRequired,
@@ -123,6 +124,10 @@ class Input_form_en(FlaskForm):
         ]
     )     
 
+    storage_surcharge = BooleanField(
+        'Storage surcharge'
+    )
+
     submit = SubmitField('Calculate')  
 
     fields = ['weight',
@@ -131,7 +136,8 @@ class Input_form_en(FlaskForm):
     'depth',
     'value',
     'currency',
-    'taxes',]
+    'taxes',
+    'storage_surcharge']
 
 class Input_form_es(FlaskForm):
     weight = DecimalField(
@@ -203,6 +209,10 @@ class Input_form_es(FlaskForm):
         ]
     )     
 
+    storage_surcharge = BooleanField(
+        'Recargo de almacenamiento'
+    )
+
     submit = SubmitField('Calcular')  
 
     fields = ['weight',
@@ -211,4 +221,6 @@ class Input_form_es(FlaskForm):
     'depth',
     'value',
     'currency',
-    'taxes',]
+    'taxes',
+    'storage_surcharge'
+    ]

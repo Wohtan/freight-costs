@@ -21,6 +21,12 @@ def calculate_costs(input_data):
 
     costs.update(fixed_costs)
 
+    #Checks for the storage surcharge option
+    if not 'storage_surcharge' in input_data:
+        costs['additional handling'] = 0
+        costs['keeping'] = 0
+        costs['storage'] = 0
+
     nonfree_surcharge = costs['additional handling'] + costs['keeping'] + costs['storage']
 
     maneuvers_total = costs['handling'] + costs['maneuvers'] + nonfree_surcharge

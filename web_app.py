@@ -12,6 +12,8 @@ def home():
     fields = form.fields
     input_data = request.form.to_dict()
 
+    print(input_data)
+
     if form.validate_on_submit(): 
         costs = calculate_costs(input_data)    
         return render_template(f'calculate_{language}.html', form = form, fields = fields, costs=costs)
