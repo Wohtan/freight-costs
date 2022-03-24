@@ -21,4 +21,3 @@ def home():
         return render_template(f'calculate_{language}.html', form = form, fields = fields, costs=costs)
 
     return render_template(f'calculate_{language}.html', form = form, fields = fields, costs = [])
-
