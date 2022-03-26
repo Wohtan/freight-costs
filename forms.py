@@ -69,7 +69,7 @@ class Input_form_en(FlaskForm):
         'Height [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Value out of range'
             )],
         places= 1,
@@ -79,7 +79,7 @@ class Input_form_en(FlaskForm):
         'Length [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Value out of range'
             )],
         places= 1,
@@ -89,7 +89,7 @@ class Input_form_en(FlaskForm):
         'Depth [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Value out of range'
             )],
         places= 1,
@@ -154,7 +154,7 @@ class Input_form_es(FlaskForm):
         'Altura [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Valor fuera de rango'
             )],
         places= 1,
@@ -164,7 +164,7 @@ class Input_form_es(FlaskForm):
         'Ancho [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Valor fuera de rango'
             )],
         places= 1,
@@ -174,7 +174,7 @@ class Input_form_es(FlaskForm):
         'Largo [cm]',
             [DataRequired(),
             NumberRange(min=5,
-            max = 150,
+            max = 100,
             message = 'Valor fuera de rango'
             )],
         places= 1,
